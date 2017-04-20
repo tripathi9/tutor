@@ -1,7 +1,7 @@
 <head>
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>Login</title>
+      <title>Rate policy</title>
       {% load static %}
       <link rel="stylesheet" href="{% static 'tutor/font-awesome.min.css' %}">
       <link rel="stylesheet" href="{% static 'tutor/bootstrap.min.css' %}">
@@ -121,10 +121,10 @@ label.light {
   border-radius: 100%;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (min-width: 550px) {
 
   form {
-    max-width: 480px;
+    max-width: 550px;
   }
 
 }
@@ -161,12 +161,8 @@ label.light {
 
                   <ul class="nav navbar-nav navbar-right">
                     <li><a class="menu" href="/home/" >Home</a></li>
-                    {% if user.is_authenticated %}
+                    <li><a class="menu active" href="/accounts/profile/" >{{ user.get_full_name }}</a></li>
                     <li><a class="menu" href="/logout/">Logout</a></li>
-                    {% else %}
-                    <li><a class="menu" href="/register/">Register</a></li>
-                    {% endif %}
-
 
                   </ul>
                 </div><!-- /navbar-collapse -->
@@ -179,8 +175,6 @@ label.light {
     </div><!-- end of header area -->
 
 
-
-
     <div class="container-fluid">
       <div class="row">
         <div id="carouselHacked" class="carousel slide carousel-fade" data-ride="carousel">
@@ -188,23 +182,16 @@ label.light {
         <div  style="margin-top:150px;">
     <form action="." method="post">
 <div>
-      <h1>Welcome Back</h1>
+      <h1>Add your rate policy</h1>
 
              <div>
                {% csrf_token %}
                {{ form.as_p }}
            </div>
 
-      <button type="submit">Login</button>
-      <div style="float:right"><h5><u><a href="/forgotpassword/"> forgot password </a></u> </h5></div>
-      <h3><div style="text-align:center;">Or
-        <div><a href="{% url 'social:begin' 'facebook' %}?next={{ request.path }}">Login with Facebook</a> </div>
-      </div></h3>
-
-      </div>
+</div>
+      <button type="submit">Save</button>
     </form>
-
-
 </div>
 </div></div></div>
   </body>

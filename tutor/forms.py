@@ -15,6 +15,28 @@ class UserRegisterForm(forms.ModelForm):
       model = Account
       fields=('usertype', 'firstname', 'lastname', 'email', 'password', 'mobile', 'city', 'state', 'pincode', 'profilepicture')
 
+class ForgotPasswordForm(forms.ModelForm):
+    email = forms.EmailField(label='Enter your registered email')
+    class Meta:
+        model = Account
+        fields=('email',)
+
+# class SearchForm(forms.ModelForm):
+#     searchbox = forms.CharField(placeholder="Search tutor by skills")
+class TravelPolicyForm(forms.ModelForm):
+
+    class Meta:
+        model = Travel
+        fields=('travel',)
+
+
+class RatePolicyForm(forms.ModelForm):
+
+    class Meta:
+        model = Rate
+        fields=('rate',)
+
+
 
 class UserProfileForm(forms.ModelForm):
     email = forms.EmailField(label='Email')

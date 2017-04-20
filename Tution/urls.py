@@ -34,7 +34,13 @@ urlpatterns = [
     url(r'^qualifications/$', views.add_qualifications),
     url(r'^addBio/$', views.add_Bio),
     url(r'^tutorDetails/(?P<id>[0-9]+)/$', views.tutorDetails),
-    # url(r'^events/(?P<id>[0-9]+)/$', views.event_update),
+    url(r'^forgotpassword/$', views.forget_password),
+    url(r'^tutors/$', views.search_tutors),
+    url(r'^travelpolicy/$', views.travel_policy),
+    url(r'^fee/$', views.rate_policy),
+    url(r'^tutors/(?P<subject>[a-zA-Z]*)/$', views.tutors_by_subject),
+    url(r'^tutors/(?P<city>[a-zA-Z]*)/$', views.by_city),
+    # url(r'^tutors1/$', views.by_city),
 
 
 

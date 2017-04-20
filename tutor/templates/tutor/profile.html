@@ -182,7 +182,7 @@
 
   <div style="background-color:linen;padding:10px;border:2px solid grey;">
 
-  <table style="width:100%;text-align: center;border:2px solid grey;color:marron;">
+  <table style="width:100%;text-align: center;border:2px solid grey;color:marron">
   {% for obj in list %}
 	  <div class="author">
 
@@ -259,7 +259,40 @@
 
 </td>
 </tr>
+
 </table>
+<div class="col-md-4"  style="margin-top:10px;margin-left:-12px;">
+<div class="card card-user">
+<div class="content">
+		<center>
+<img src={% static "tutor/img/rupee.jpg" %} alt="" class="" style="width:60px;height:60px;">
+			<h3 style="color:black;">{{ rat.rate }}<br/>
+					 per hour</h3>
+					 <h5 style="float:right;"><a href="/fee/"><u> Add</u></a></h5>
+				 </center>
+
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4"  style="margin-top:10px;margin-left:-12px;">
+<div class="card card-user">
+<div class="content">
+		<center><h3 style="color:black;">
+					 Travel Policy</h3>
+					 <h5 style="float:right;"><a href="/travelpolicy/"><u> Add</u></a></h5>
+					 <h4>
+						 {{ trav.travel }}
+				   </h4>
+
+				 </center>
+
+</div>
+</div>
+</div>
+
+
 
 {% endif %}
 

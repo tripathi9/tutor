@@ -39,6 +39,7 @@
 
 
             <ul class="nav">
+							{% if user.is_authenticated %}
                 <li class="active">
                     <a href="/accounts/profile/">
                         <i class="pe-7s-graph"></i>
@@ -82,7 +83,7 @@
                     </a>
                 </li>
 
-
+           {% endif %}
             </ul>
 
     	</div>
@@ -103,12 +104,14 @@
 
                 </ul>
                     <ul class="nav navbar-nav navbar-right" style="margin-top:-5px;">
+												{% if user.is_authenticated %}
                         <li>
 
                             <a href="/logout/">
                               <h2 style="color:#42D800;display:block;">  Logout</h2>
                             </a>
                         </li>
+												{% endif %}
                     </ul>
                 </div>
             </div>
@@ -171,6 +174,36 @@
 </td>
 </tr>
 </table>
+
+<div class="col-md-4"  style="margin-top:10px;margin-left:-12px;">
+<div class="card card-user">
+<div class="content">
+		<center>
+<img src={% static "tutor/img/rupee.jpg" %} alt="" class="" style="width:60px;height:60px;">
+			<h3 style="color:black;">{{ rat.rate }}<br/>
+					 per hour</h3>
+				 </center>
+
+</div>
+</div>
+</div>
+
+
+<div class="col-md-4"  style="margin-top:10px;margin-left:-12px;">
+<div class="card card-user">
+<div class="content">
+		<center><h3 style="color:black;">
+					 Travel Policy</h3>
+					 <h4>
+						 {{ trav.travel }}
+				   </h4>
+
+				 </center>
+
+</div>
+</div>
+</div>
+
 
 
 

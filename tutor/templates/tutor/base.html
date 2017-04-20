@@ -14,6 +14,19 @@
 	<link rel="stylesheet" href="{% static 'tutor/style.css' %}">
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:600italic,400,800,700,300' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=BenchNine:300,400,700' rel='stylesheet' type='text/css'>
+	<style>
+	#searchbox {
+    position:absolute;
+		left: -400px;
+		top:-13px;
+
+
+
+    display:inline-block;
+    z-index:10
+}
+
+	</style>
 </head>
 <body>
 
@@ -45,6 +58,11 @@
 					    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 
 					      <ul class="nav navbar-nav navbar-right">
+									<li><form id="searchbox" action="{{'/tutors/'}}" method="get"><h3>
+									<input type="text" placeholder="Search tutor by Subjects" name="search_box" style="width:300px;height:40px;color:green;"/>
+									<button type="submit" style="width:80px;color:green;">Search</button>
+								</h3></form>
+									</li>
 					        <li><a class="menu active" href="/home/" >Home</a></li>
                   {% if user.is_authenticated %}
 									<li><a class="menu active" href="/accounts/profile/" >{{ user.get_full_name }}</a></li>
@@ -79,6 +97,7 @@
 					        <div class="carousel-inner" role="listbox">
 					            <div class="item active">
 					            	<img src={% static "tutor/img/slide-one.jpg" %} alt="">
+
 
 					            </div>
 					            <div class="item">
@@ -183,9 +202,32 @@
 			<footer class="footer clearfix">
 				<div class="container">
 					<div class="row">
+
+						<div class="col-xs-8 text-center">
+							<h3>Cities</h3>
+					{% for obj in acc %}
+					 <h4>
+							<a href="/tutors/{{ obj.city }}/">{{ obj.city }}</h4></a>
+
+							{% endfor %}
+
+						</div>
+
+
+						<div class="text-right">
+							<h3>Subjects</h3>
+					{% for obj in sub %}
+					 <h4>
+							<a href="/tutors/{{ obj.subject }}/">{{ obj.subject }}</h4></a>
+
+							{% endfor %}
+
+						</div>
 						<div class="col-xs-6 footer-para">
 							<p>&copy;All right reserved by Ankur Tripathi</p>
 						</div>
+
+
 
 						<div class="col-xs-6 text-right">
 							<a href=""><i class="fa fa-facebook"></i></a>
